@@ -77,8 +77,14 @@
     padding: 30px;
     border-radius: 15px;
     width: 280px;
-    transition: 0.3s;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
 
 .card:hover {
     transform: translateY(-10px);
@@ -135,6 +141,14 @@ html {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+    transform: translateY(-3px);
+}
+
 }
 .contact-buttons {
     display: flex;
@@ -150,6 +164,22 @@ html {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    transition: 0.3s;
+}
+
+.linkedin-btn:hover {
+    box-shadow: 0 0 20px rgba(10, 102, 194, 0.6);
+    transform: translateY(-3px);
+}
+
+}
+section {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
     </style>
