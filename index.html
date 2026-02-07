@@ -54,6 +54,45 @@
             color: #64748b;
             font-size: 14px;
         }
+.services {
+    padding: 80px 20px;
+    text-align: center;
+    background: #111827;
+}
+
+.services h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.service-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #1f2937;
+    padding: 30px;
+    border-radius: 15px;
+    width: 280px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: #374151;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #9ca3af;
+}
+
     </style>
 </head>
 <body>
@@ -71,6 +110,23 @@
     <h1>Precision in Audit. Clarity in Finance.</h1>
     <p>Helping businesses stay compliant, structured, and financially strong.</p>
     <a href="#" class="btn">Work With Me</a>
+</section>
+<section class="services">
+    <h2>Services</h2>
+    <div class="service-grid">
+        <div class="card">
+            <h3>Statutory Audit</h3>
+            <p>Independent audit services ensuring compliance and financial accuracy.</p>
+        </div>
+        <div class="card">
+            <h3>Internal Audit</h3>
+            <p>Risk assessment, control evaluation, and operational improvement solutions.</p>
+        </div>
+        <div class="card">
+            <h3>Financial Advisory</h3>
+            <p>Strategic financial planning and performance-driven insights.</p>
+        </div>
+    </div>
 </section>
 
 <footer>
