@@ -163,7 +163,25 @@
     border-radius: 20px;
     color: #555;
 }
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    font-size: 20px;
+    color: #777;
+    transition: 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #000;
+    transform: translateY(-3px);
+}
     </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -291,10 +309,20 @@
            class="secondary-btn">Email</a>
     </div>
 
-    <div class="social-links" aria-label="social links">
-        <a href="https://www.linkedin.com/in/sinha-ayush22" target="_blank">LinkedIn</a>
-        <a href="https://www.instagram.com/the_audit_ninja" target="_blank">Instagram</a>
-    </div>
+   <div class="social-links">
+    <a href="https://www.linkedin.com/in/sinha-ayush22" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="https://www.instagram.com/the_audit_ninja" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/918299137074" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
 </section>
 
 <footer>
