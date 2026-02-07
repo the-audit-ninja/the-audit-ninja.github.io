@@ -92,6 +92,26 @@
 .card p {
     color: #9ca3af;
 }
+html {
+    scroll-behavior: smooth;
+}
+.about {
+    padding: 80px 20px;
+    text-align: center;
+    background: #0f172a;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    color: #94a3b8;
+    font-size: 18px;
+}
 
     </style>
 </head>
@@ -99,11 +119,12 @@
 
 <header>
     <div class="logo">The Audit Ninja</div>
-    <nav>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 </header>
 
 <section class="hero">
@@ -111,7 +132,15 @@
     <p>Helping businesses stay compliant, structured, and financially strong.</p>
     <a href="#" class="btn">Work With Me</a>
 </section>
-<section class="services">
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+        I am a finance professional focused on audit precision, compliance clarity,
+        and strategic financial insights. My mission is to help businesses
+        operate transparently and grow sustainably.
+    </p>
+</section>
+    <section id="services" class="services">
     <h2>Services</h2>
     <div class="service-grid">
         <div class="card">
