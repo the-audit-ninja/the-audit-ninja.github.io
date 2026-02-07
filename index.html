@@ -19,13 +19,21 @@
 
     <style>
         /* ===== Apple-inspired clean theme (single consolidated CSS) ===== */
-        :root{
-    --bg:#f5f5f7;        /* main background */
-    --card:#ffffff;      /* cards stay pure white */
-    --muted:#6e6e73;     /* Apple-style muted text */
-    --text:#1d1d1f;      /* softer than pure black */
+       :root{
+    --bg:#f5f5f7;
+    --card:#ffffff;
+    --muted:#6e6e73;
+    --text:#1d1d1f;
     --accent:#000000;
-    --soft:#e5e5e7;      /* refined divider tone */
+    --soft:#e5e5e7;
+}
+body.dark-mode {
+    --bg:#111111;
+    --card:#1c1c1e;
+    --muted:#a1a1a6;
+    --text:#f5f5f7;
+    --accent:#ffffff;
+    --soft:#2c2c2e;
 }
 
         *{box-sizing:border-box}
@@ -212,7 +220,21 @@
 #topBtn:hover {
     transform: translateY(-4px);
 }
+.theme-btn {
+    margin-left: 20px;
+    background: transparent;
+    border: 1px solid var(--soft);
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
 
+.theme-btn:hover {
+    background: var(--soft);
+}
     </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -237,6 +259,27 @@
         });
     };
 </script>
+    <script>
+    const toggleBtn = document.getElementById("themeToggle");
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "☀";
+    }
+
+    toggleBtn.onclick = function() {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            toggleBtn.textContent = "☀";
+        } else {
+            localStorage.setItem("theme", "light");
+            toggleBtn.textContent = "☾";
+        }
+    };
+</script>
 <body>
 <header>
     <div class="logo">
@@ -249,6 +292,7 @@
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
     </nav>
+    <button id="themeToggle" class="theme-btn">☾</button>
 </header>
 
 <section class="hero">
