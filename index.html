@@ -16,54 +16,191 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-        }
-        header {
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-weight: 700;
-            font-size: 20px;
-        }
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-        }
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 20px;
-            color: #94a3b8;
-            margin-bottom: 30px;
-        }
-        .btn {
-            padding: 14px 30px;
-            background: #3b82f6;
-            border-radius: 30px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
-            font-size: 14px;
-        }
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Poppins", sans-serif;
+    background: #ffffff;
+    color: #111;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.logo-img {
+    width: 30px;
+    height: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #666;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 140px 20px 100px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #666;
+    max-width: 700px;
+    margin: auto;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 40px;
+    border-radius: 30px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Sections */
+section {
+    padding: 110px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+p {
+    max-width: 750px;
+    margin: auto;
+    color: #555;
+}
+
+/* Cards & Tools */
+.service-grid,
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card,
+.tool {
+    padding: 40px 25px;
+    border-radius: 18px;
+    background: #f5f5f7;
+    transition: 0.2s ease;
+}
+
+.card:hover,
+.tool:hover {
+    background: #eaeaea;
+    transform: translateY(-4px);
+}
+
+/* Ownership */
+.ownership {
+    font-size: 14px;
+    color: #777;
+    padding: 20px;
+}
+
+/* Credentials */
+.credentials ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.credentials li {
+    margin: 12px 0;
+    color: #444;
+}
+
+/* Contact */
+.contact-buttons {
+    margin-top: 40px;
+}
+
+.primary-btn {
+    padding: 14px 40px;
+    background: #000;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.secondary-btn {
+    margin-left: 20px;
+    padding: 14px 35px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a {
+    margin: 0 12px;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #000;
+}
+
+/* Footer */
+footer {
+    padding: 50px 20px;
+    font-size: 14px;
+    color: #888;
+    border-top: 1px solid #eaeaea;
+}
+
 .services {
     padding: 80px 20px;
     text-align: center;
