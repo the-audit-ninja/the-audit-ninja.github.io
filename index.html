@@ -377,8 +377,23 @@ section {
 
       <div class="contact-buttons" style="margin-top:14px;">
         <!-- Use mailto so native email clients open; include a subject for convenience -->
-        <a id="mailBtn" class="primary-btn" href="mailto:ayushsinha6946@gmail.com?subject=Consultation%20Request" role="button">Mail Me</a>
-              </div>
+       <form action="https://formspree.io/f/mwvnknzg" method="POST" style="max-width:500px;margin:20px auto;text-align:left;">
+  
+  <label style="display:block;margin-bottom:6px;">Name</label>
+  <input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:14px;border-radius:8px;border:1px solid #ddd;">
+
+  <label style="display:block;margin-bottom:6px;">Email</label>
+  <input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:14px;border-radius:8px;border:1px solid #ddd;">
+
+  <label style="display:block;margin-bottom:6px;">Message</label>
+  <textarea name="message" rows="4" required style="width:100%;padding:10px;margin-bottom:16px;border-radius:8px;border:1px solid #ddd;"></textarea>
+
+  <button type="submit" style="padding:10px 24px;border-radius:20px;border:none;background:#000;color:#fff;cursor:pointer;">
+    Send Message
+  </button>
+
+</form>
+         </div>
 
       <div class="social-links" id="social-links" aria-label="social links" style="margin-top:18px;">
         <a href="https://www.linkedin.com/in/sinha-ayush22" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
@@ -515,6 +530,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+  // Form success handling
+const form = document.getElementById("contactForm");
+const successMsg = document.getElementById("formSuccess");
+
+if (form) {
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.reset();
+      successMsg.style.display = "block";
+    }
+  });
+}
   </script>
 </body>
 </html>
