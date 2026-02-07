@@ -2,564 +2,241 @@
 <html>
 <head>
     <title>The Audit Ninja</title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QNKL675PZZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-QNKL675PZZ');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNKL675PZZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QNKL675PZZ');
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
     <style>
+        /* ===== Apple-inspired clean theme (single consolidated CSS) ===== */
+        :root{
+            --bg:#f5f5f7;
+            --card:#ffffff;
+            --muted:#666;
+            --text:#111;
+            --accent:#000;
+            --soft:#eaeaea;
+        }
+
+        *{box-sizing:border-box}
         body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Poppins", sans-serif;
-   background: #f5f5f7;;
-    color: #111;
-    line-height: 1.6;
-}
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Poppins", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-/* Header */
-header {
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eaeaea;
-}
+        header {
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+            background: transparent;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 18px;
-}
+        .logo { display:flex; align-items:center; gap:12px; font-weight:600; font-size:18px; color:var(--text); }
+        .logo-img { width:30px; height:30px; border-radius:6px; object-fit:cover; }
 
-.logo-img {
-    width: 30px;
-    height: 30px;
-}
+        nav a {
+            text-decoration: none;
+            color: #666;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: color .18s ease;
+        }
+        nav a:hover{ color: #000; }
 
-nav a {
-    text-decoration: none;
-    color: #666;
-    margin-left: 25px;
-    font-size: 14px;
-    transition: 0.2s ease;
-}
+        .hero {
+            text-align: center;
+            padding: 120px 20px 80px;
+        }
+        .hero h1 { font-size:48px; font-weight:600; margin-bottom:18px; }
+        .hero p { font-size:18px; color:var(--muted); max-width:760px; margin:auto; }
 
-nav a:hover {
-    color: #000;
-}
+        .btn {
+            display:inline-block;
+            margin-top:34px;
+            padding:12px 36px;
+            border-radius:28px;
+            background:var(--accent);
+            color:#fff;
+            text-decoration:none;
+            font-weight:500;
+            transition:opacity .18s ease, transform .12s ease;
+        }
+        .btn:hover{ opacity:.88; transform: translateY(-3px); }
 
-/* Hero */
-.hero {
-    text-align: center;
-    padding: 140px 20px 100px;
-}
+        section { padding: 80px 20px; text-align:center; background: transparent; }
+        h2 { font-size:32px; font-weight:600; margin-bottom:22px; color:var(--text); }
+        p { max-width:820px; margin:auto; color:#555; }
 
-.hero h1 {
-    font-size: 52px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
+        /* grids */
+        .service-grid, .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 24px;
+            margin-top: 28px;
+            max-width:1100px;
+            margin-left:auto; margin-right:auto;
+        }
 
-.hero p {
-    font-size: 20px;
-    color: #666;
-    max-width: 700px;
-    margin: auto;
-}
+        .card, .tool {
+            padding:28px;
+            border-radius:14px;
+            background: var(--card);
+            box-shadow: 0 6px 18px rgba(20,20,20,0.04);
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+            text-align:left;
+        }
+        .card:hover, .tool:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(20,20,20,0.06);
+            background: #fbfbfb;
+        }
 
-.btn {
-    display: inline-block;
-    margin-top: 40px;
-    padding: 14px 40px;
-    border-radius: 30px;
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.2s ease;
-}
+        .card h3 { margin-top:0; margin-bottom:10px; font-size:18px; color:var(--text); }
+        .card p { margin:0; color:#555; font-size:15px; }
 
-.btn:hover {
-    opacity: 0.85;
-}
+        /* small ownership line */
+        .ownership { font-size:14px; color:#777; padding:14px 20px; }
 
-/* Sections */
-section {
-    padding: 110px 20px;
-    text-align: center;
-}
+        /* credentials */
+        .credentials { max-width:900px; margin: 0 auto; }
+        .credentials p { color:#555; }
+        .credentials .engagement { margin-top:22px; text-align:left; }
+        .credentials .engagement h3 { font-size:18px; margin-bottom:10px; }
+        .credentials .engagement ul { list-style: none; padding:0; margin:0; }
+        .credentials .engagement li { margin:8px 0; color:#444; padding-left: 10px; position:relative; }
+        .credentials .engagement li::before { content:"•"; color:var(--accent); position:absolute; left:-10px; top:0; font-weight:700; }
 
-h2 {
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 30px;
-}
+        /* tools */
+        .tools { max-width:1000px; margin-left:auto; margin-right:auto; }
 
-p {
-    max-width: 750px;
-    margin: auto;
-    color: #555;
-}
+        /* contact */
+        .contact p { margin-bottom:18px; color:#555; }
+        .contact-buttons { margin-top:18px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; align-items:center; }
+        .primary-btn {
+            padding:12px 34px; background:var(--accent); color:#fff; border-radius:28px; text-decoration:none; font-weight:600;
+        }
+        .primary-btn:hover { transform: translateY(-3px); opacity:.95; }
 
-/* Cards & Tools */
-.service-grid,
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .secondary-btn {
+            padding:11px 28px; background:transparent; border:1px solid #111; border-radius:28px; color:#111; text-decoration:none; font-weight:500;
+        }
 
-.card,
-.tool {
-    padding: 40px 25px;
-    border-radius: 18px;
-    background: #f5f5f7;
-    transition: 0.2s ease;
-}
+        .social-links { margin-top:16px; display:flex; justify-content:center; gap:18px; }
+        .social-links a { color:#666; text-decoration:none; font-size:14px; }
+        .social-links a:hover { color:#000; }
 
-.card:hover,
-.tool:hover {
-    background: #eaeaea;
-    transform: translateY(-4px);
-}
+        footer { padding:40px 20px; font-size:14px; color:#888; border-top:1px solid #eaeaea; text-align:center; }
 
-/* Ownership */
-.ownership {
-    font-size: 14px;
-    color: #777;
-    padding: 20px;
-}
+        /* responsive tweaks */
+        @media (max-width:720px){
+            header { padding:14px 20px; }
+            .hero { padding:80px 16px 50px; }
+            .hero h1 { font-size:34px; }
+            .btn { padding:10px 22px; }
+            .card, .tool { padding:18px; }
+        }
 
-/* Credentials */
-.credentials ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 30px;
-}
-
-.credentials li {
-    margin: 12px 0;
-    color: #444;
-}
-
-/* Contact */
-.contact-buttons {
-    margin-top: 40px;
-}
-
-.primary-btn {
-    padding: 14px 40px;
-    background: #f5f5f7;;
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.secondary-btn {
-    margin-left: 20px;
-    padding: 14px 35px;
-    border: 1px solid #000;
-    border-radius: 30px;
-    text-decoration: none;
-    color: #000;
-}
-
-.social-links {
-    margin-top: 30px;
-}
-
-.social-links a {
-    margin: 0 12px;
-    font-size: 14px;
-    color: #666;
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    color: #000;
-}
-
-/* Footer */
-footer {
-    padding: 50px 20px;
-    font-size: 14px;
-    color: #888;
-    border-top: 1px solid #eaeaea;
-}
-
-.services h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-}
-
-.service-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: #1f2937;
-    padding: 30px;
-    border-radius: 15px;
-    width: 280px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-
-.card:hover {
-    transform: translateY(-10px);
-    background: #374151;
-}
-
-.card h3 {
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: #9ca3af;
-}
-html {
-    scroll-behavior: smooth;
-}
-.about {
-    padding: 80px 20px;
-    text-align: center;
-    background: #0f172a;
-}
-
-.about h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.about p {
-    max-width: 700px;
-    margin: auto;
-    color: #94a3b8;
-    font-size: 18px;
-}
-.contact {
-    padding: 80px 20px;
-    text-align: center;
-    background: #0f172a;
-}
-
-.contact h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.contact p {
-    color: #94a3b8;
-    margin-bottom: 30px;
-}
-
-.contact-btn {
-    padding: 14px 30px;
-    background: #000; color: #fff;
-    border-radius: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.contact-btn:hover {
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
-    transform: translateY(-3px);
-}
-
-}
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.linkedin-btn {
-    padding: 14px 30px;
-    background: #0a66c2;
-    border-radius: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.linkedin-btn:hover {
-    box-shadow: 0 0 20px rgba(10, 102, 194, 0.6);
-    transform: translateY(-3px);
-}
-
-}
-section {
-    animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.credentials {
-    padding: 80px 20px;
-    text-align: center;
-    background: #0f172a;
-}
-
-.credentials p {
-    max-width: 750px;
-    margin: auto;
-    color: #94a3b8;
-    margin-bottom: 40px;
-}
-
-.engagement ul {
-    list-style: none;
-    padding: 0;
-    color: #cbd5e1;
-}
-
-.engagement li {
-    margin: 10px 0;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.logo-img {
-    width: 35px;
-    height: 35px;
-    border-radius: 6px;
-}
-.ownership {
-    text-align: center;
-    padding: 20px;
-    background: #111827;
-    color: #9ca3af;
-    font-size: 15px;
-}
-.tools {
-    padding: 80px 20px;
-    text-align: center;
-    background: #111827;
-}
-
-.tools h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-}
-
-.tools-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.tool {
-    background: #1f2937;
-    padding: 15px 25px;
-    border-radius: 25px;
-    font-size: 14px;
-    color: #cbd5e1;
-    transition: 0.3s;
-}
-
-.tool:hover {
-    background: #374151;
-    transform: translateY(-5px);
-}
-.whatsapp-btn {
-    padding: 14px 30px;
-    background: #25D366;
-    border-radius: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.whatsapp-btn:hover {
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
-    transform: translateY(-3px);
-}
-
-.insta-btn {
-    padding: 14px 30px;
-    background: #E1306C;
-    border-radius: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.insta-btn:hover {
-    box-shadow: 0 0 20px rgba(225, 48, 108, 0.6);
-    transform: translateY(-3px);
-}
-.primary-btn {
-    padding: 14px 35px;
-    background: #000; color: #fff;
-    border-radius: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.primary-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(34,197,94,0.5);
-}
-
-.secondary-btn {
-    padding: 14px 30px;
-    background: transparent;
-    border: 1px solid #94a3b8;
-    border-radius: 30px;
-    color: #cbd5e1;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 15px;
-}
-
-.social-links {
-    margin-top: 25px;
-}
-
-.social-links a {
-    margin: 0 10px;
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.social-links a:hover {
-    color: white;
-}
-
+        /* smooth scroll */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">
-    <img src="favicon.png" alt="Logo" class="logo-img">
-    <span>The Audit Ninja</span>
-</div>
+        <img src="favicon.png" alt="Logo" class="logo-img">
+        <span>The Audit Ninja</span>
+    </div>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-</nav>
-
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
    <h1>Audit & Finance Services</h1>
-<p>Independent audit support, compliance solutions, and financial clarity for growing businesses.</p>
-<a href="#contact" class="btn">Get Consultation</a>
-    
+   <p>Independent audit support, compliance solutions, and financial clarity for growing businesses.</p>
+   <a href="#contact" class="btn">Get Consultation</a>
 </section>
-   <section class="ownership">
-    <p>
-        The Audit Ninja is an independent freelance initiative led and operated by Ayush Sinha.
-    </p>
+
+<section class="ownership">
+    <p>The Audit Ninja is an independent freelance initiative led and operated by Ayush Sinha.</p>
 </section>
- 
+
 <section id="about" class="about">
     <h2>About</h2>
     <p>
-The Audit Ninja is an independent freelance audit and finance platform founded
-by Ayush Sinha. Backed by practical audit experience and strong financial
-analysis skills, the mission is to support businesses with compliant reporting,
-risk-aware processes, and transparent financial systems. The approach emphasizes
-precision, accountability, and timely execution.
-</p>
+        The Audit Ninja is an independent freelance audit and finance platform founded by Ayush Sinha. Backed by practical audit experience and strong financial analysis skills, the mission is to support businesses with compliant reporting, risk-aware processes, and transparent financial systems. The approach emphasizes precision, accountability, and timely execution.
     </p>
 </section>
-    <section id="services" class="services">
+
+<section id="services" class="services">
     <h2>Services Offered</h2>
+
     <div class="service-grid">
-      <div class="card">
-    <h3>Statutory Audit Support</h3>
-    <p>Preparation, documentation, compliance review, and audit coordination assistance.</p>
-</div>
+        <div class="card">
+            <h3>Statutory Audit Support</h3>
+            <p>Preparation, documentation, compliance review, and audit coordination assistance.</p>
+        </div>
 
-<div class="card">
-    <h3>Internal Audit & Controls</h3>
-    <p>Process evaluation, risk identification, and internal control improvement.</p>
-</div>
+        <div class="card">
+            <h3>Internal Audit & Controls</h3>
+            <p>Process evaluation, risk identification, and internal control improvement.</p>
+        </div>
 
-<div class="card">
-    <h3>Financial Reporting Assistance</h3>
-    <p>Financial statement preparation, review, and compliance alignment.</p>
-</div>
+        <div class="card">
+            <h3>Financial Reporting Assistance</h3>
+            <p>Financial statement preparation, review, and compliance alignment.</p>
+        </div>
 
-<div class="card">
-    <h3>GST & Compliance Review</h3>
-    <p>Basic compliance checks and financial record validation support.</p>
-</div>
-
+        <div class="card">
+            <h3>GST & Compliance Review</h3>
+            <p>Basic compliance checks and financial record validation support.</p>
+        </div>
     </div>
-        <section class="credentials">
-    <h2>Qualifications & Approach</h2>
 
-    <p>
-        CA Finalist with practical experience in statutory audits,
-        internal control reviews, financial reporting, and compliance assignments.
-        Exposure includes structured working papers, documentation review,
-        and regulatory alignment across diverse engagements.
-    </p>
+    <div class="credentials">
+        <h2 style="margin-top:46px;">Qualifications & Approach</h2>
+        <p>
+            CA Finalist with practical experience in statutory audits, internal control reviews, financial reporting, and compliance assignments. Exposure includes structured working papers, documentation review, and regulatory alignment across diverse engagements.
+        </p>
 
-    <div class="engagement">
-        <h3>Engagement Philosophy</h3>
-        <ul>
-            <li>Accuracy-driven documentation and reporting</li>
-            <li>Risk-focused evaluation of financial processes</li>
-            <li>Confidential and professional client communication</li>
-            <li>Timely delivery with structured audit support</li>
-        </ul>
+        <div class="engagement">
+            <h3>Engagement Philosophy</h3>
+            <ul>
+                <li>Accuracy-driven documentation and reporting</li>
+                <li>Risk-focused evaluation of financial processes</li>
+                <li>Confidential and professional client communication</li>
+                <li>Timely delivery with structured audit support</li>
+            </ul>
+
+            <h3 style="margin-top:20px;">Engagement Model</h3>
+            <ul>
+                <li>Project-based audit and documentation assignments</li>
+                <li>Retainership support for ongoing compliance needs</li>
+                <li>Remote audit assistance and working paper preparation</li>
+                <li>Structured coordination with management and consultants</li>
+            </ul>
+        </div>
     </div>
 </section>
-   <div class="engagement">
-    <h3>Engagement Model</h3>
-    <ul>
-        <li>Project-based audit and documentation assignments</li>
-        <li>Retainership support for ongoing compliance needs</li>
-        <li>Remote audit assistance and working paper preparation</li>
-        <li>Structured coordination with management and consultants</li>
-    </ul>
-</div>
-</section>
+
 <section class="tools">
     <h2>Tools & Platforms</h2>
     <div class="tools-grid">
@@ -571,36 +248,23 @@ precision, accountability, and timely execution.
         <div class="tool">Regulatory Compliance Documentation</div>
     </div>
 </section>
-</section>
+
 <section id="contact" class="contact">
     <h2>Contact</h2>
-   <p>Looking for reliable audit and financial support? Let’s connect.</p>
+    <p>Looking for reliable audit and financial support? Let’s connect.</p>
+
     <div class="contact-buttons">
+        <a href="https://wa.me/918299137074" target="_blank" class="primary-btn">Get Consultation</a>
 
-    <a href="https://wa.me/918299137074"
-       target="_blank"
-       class="primary-btn">
-        Get Consultation
-    </a>
-
-   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ayushsinha6946@gmail.com"
-   target="_blank"
-   class="secondary-btn">
-   Email
-</a>
-
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/sinha-ayush22"
-           target="_blank">LinkedIn</a>
-
-        <a href="https://www.instagram.com/the_audit_ninja"
-           target="_blank">Instagram</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ayushsinha6946@gmail.com"
+           target="_blank"
+           class="secondary-btn">Email</a>
     </div>
 
-</div>
-
-</a>
-
+    <div class="social-links" aria-label="social links">
+        <a href="https://www.linkedin.com/in/sinha-ayush22" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/the_audit_ninja" target="_blank">Instagram</a>
+    </div>
 </section>
 
 <footer>
