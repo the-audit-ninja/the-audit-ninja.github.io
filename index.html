@@ -76,7 +76,8 @@
 
     nav { display:flex; gap:14px; align-items:center; }
     nav a { color:var(--muted); text-decoration:none; font-size:14px; padding:6px 8px; transition: color .18s ease; }
-    nav a:hover { color:var(--text); }
+    nav a:hover, nav a:focus { color:var(--text); outline: none; }
+    nav a[aria-current="true"] { color:var(--text); font-weight:600; }
 
     .controls { margin-left:auto; display:flex; align-items:center; gap:10px; }
 
@@ -159,7 +160,7 @@
         <img src="favicon.png" alt="Audit Ninja logo" class="logo-img">
         <span>The Audit Ninja</span>
       </div>
-      <nav>
+      <nav aria-label="Primary">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
@@ -172,11 +173,12 @@
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Audit & Finance Services</h1>
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Audit & Finance Services</h1>
       <p>Independent audit support, compliance solutions, and financial clarity for growing businesses.</p>
       <div style="margin-top:14px;">
-        <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=ayushsinha6946@gmail.com" target="_blank" rel="noopener">Get Consultation</a>
+        <!-- Changed: In-page navigation to contact/social area. Click will scroll and focus Mail button. -->
+        <a id="getConsultBtn" class="btn" href="#contact">Get Consultation</a>
       </div>
     </section>
 
@@ -268,16 +270,20 @@
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
+    <!-- Contact area: Get Consultation scrolls here and focuses the Mail button -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
       <div class="section-divider" aria-hidden="true"></div>
       <p>Looking for reliable audit and financial support? Let’s connect.</p>
 
       <div class="contact-buttons" style="margin-top:14px;">
-        <a class="primary-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=ayushsinha6946@gmail.com" target="_blank" rel="noopener">Mail Me</a>
+        <!-- Use mailto so native email clients open; include a subject for convenience -->
+        <a id="mailBtn" class="primary-btn" href="mailto:ayushsinha6946@gmail.com?subject=Consultation%20Request" role="button">Mail Me</a>
+        <!-- WhatsApp link retained for direct chat -->
+        <a class="primary-btn" href="https://wa.me/918299137074" target="_blank" rel="noopener" role="button" aria-label="Chat on WhatsApp">WhatsApp</a>
       </div>
 
-      <div class="social-links" aria-label="social links" style="margin-top:18px;">
+      <div class="social-links" id="social-links" aria-label="social links" style="margin-top:18px;">
         <a href="https://www.linkedin.com/in/sinha-ayush22" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
         <a href="https://www.instagram.com/the_audit_ninja" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         <a href="https://wa.me/918299137074" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
@@ -320,6 +326,25 @@
         });
       }
 
+      // Smooth in-page navigation for "Get Consultation" — scrolls to contact and focuses the Mail button
+      const getConsultBtn = document.getElementById('getConsultBtn');
+      const contactSection = document.getElementById('contact');
+      const mailBtn = document.getElementById('mailBtn');
+
+      if (getConsultBtn && contactSection) {
+        getConsultBtn.addEventListener('click', function (e) {
+          // allow normal behavior for non-JS environments; for JS, smooth scroll and focus mail button
+          e.preventDefault();
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // after scrolling, focus the mail button for keyboard users
+          setTimeout(() => {
+            if (mailBtn) mailBtn.focus();
+          }, 550); // approximate to allow scroll to complete
+          // update URL hash without jumping
+          history.replaceState(null, '', '#contact');
+        });
+      }
+
       // scroll-to-top button
       const topBtn = document.getElementById('topBtn');
       function showTopBtn() {
@@ -334,6 +359,11 @@
       topBtn.addEventListener('click', function () {
         window.scrollTo({top:0, behavior:'smooth'});
       });
+
+      // Improve keyboard accessibility: make sure focused anchors have visible outline
+      const style = document.createElement('style');
+      style.innerHTML = 'a:focus, button:focus { outline: 3px solid rgba(0,0,0,0.12); outline-offset: 3px; }';
+      document.head.appendChild(style);
     });
   </script>
 </body>
