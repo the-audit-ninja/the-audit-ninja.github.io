@@ -35,17 +35,23 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+        padding-top: 80px;
         }
 
         header {
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eaeaea;
-            background: transparent;
-        }
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e5e7;
+    z-index: 1000;
+}
         .logo { display:flex; align-items:center; gap:12px; font-weight:600; font-size:18px; color:var(--text); }
         .logo-img { width:30px; height:30px; border-radius:6px; object-fit:cover; }
 
