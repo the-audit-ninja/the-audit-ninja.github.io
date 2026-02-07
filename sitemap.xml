@@ -1,18 +1,9 @@
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "The Audit Ninja",
-  "url": "https://yourdomain.com",
-  "description": "Independent audit and financial reporting support.",
-  "founder": {
-    "@type": "Person",
-    "name": "Ayush Sinha"
-  },
-  "areaServed": "India",
-  "sameAs": [
-    "https://www.linkedin.com/in/sinha-ayush22",
-    "https://www.instagram.com/the_audit_ninja"
-  ]
-}
-</script>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yourdomain.com/</loc>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+
+
