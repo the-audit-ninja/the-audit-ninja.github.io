@@ -498,6 +498,16 @@ nav a[aria-current="true"] {
             toggleBtn.setAttribute('aria-pressed','false');
           }
         });
+      // Header scroll animation
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > 60) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
       }
 
       // Smooth in-page navigation for "Get Consultation" — scrolls to contact and focuses the Mail button
