@@ -280,6 +280,28 @@ nav a[aria-current="true"] {
     border-color: var(--border);
     box-shadow: 0 6px 20px var(--shadow);
 }
+    .tool {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tool i {
+    font-size: 14px;
+    color: var(--text);   /* monochrome */
+    opacity: 0.75;
+    min-width: 18px;
+}
+
+.tool:hover i {
+    opacity: 1;
+}
+  .card i {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--text);
+    opacity: 0.75;
+}
   </style>
 <script type="application/ld+json">
 {
@@ -357,12 +379,30 @@ nav a[aria-current="true"] {
       <h2>Industries Served</h2>
       <div class="section-divider" aria-hidden="true"></div>
       <div class="tools-grid" role="list">
-        <div class="tool" role="listitem">MSMEs & Growing Enterprises</div>
-        <div class="tool" role="listitem">Trading & Distribution Businesses</div>
-        <div class="tool" role="listitem">Startups & Early-Stage Ventures</div>
-        <div class="tool" role="listitem">Service-Based Organizations</div>
-        <div class="tool" role="listitem">Educational Institutions & Societies</div>
-      </div>
+        <div class="tool" role="listitem">
+    <i class="fas fa-building"></i>
+    <span>MSMEs & Growing Enterprises</span>
+</div>
+
+<div class="tool" role="listitem">
+    <i class="fas fa-truck"></i>
+    <span>Trading & Distribution Businesses</span>
+</div>
+
+<div class="tool" role="listitem">
+    <i class="fas fa-rocket"></i>
+    <span>Startups & Early-Stage Ventures</span>
+</div>
+
+<div class="tool" role="listitem">
+    <i class="fas fa-briefcase"></i>
+    <span>Service-Based Organizations</span>
+</div>
+
+<div class="tool" role="listitem">
+    <i class="fas fa-school"></i>
+    <span>Educational Institutions & Societies</span>
+</div>
     </section>
 
     <section id="services" class="services">
