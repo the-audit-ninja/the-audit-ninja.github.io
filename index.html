@@ -57,17 +57,24 @@
     }
 
     /* Header */
-    header{
-      position:fixed;
-      top:0; left:0; width:100%;
-      height:var(--header-height);
-      display:flex; align-items:center;
-      padding:12px 40px;
-      background: rgba(255,255,255,0.78);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--soft);
-      z-index:1200;
-    }
+    header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    background: var(--card);
+    border-bottom: 1px solid transparent;
+    transition: 
+        height 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+    z-index: 1000;
+}
     body.dark-mode header{
       background: rgba(10,10,10,0.56);
       border-bottom-color: rgba(255,255,255,0.04);
@@ -231,6 +238,48 @@ section {
     right: 16px;
   }
 }
+    nav {
+    display: flex;
+    gap: 26px;
+    align-items: center;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 8px 10px;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+nav a i {
+    font-size: 13px;
+    color: inherit; /* monochrome */
+    transition: transform 0.25s ease;
+}
+
+nav a:hover {
+    color: var(--text);
+}
+
+nav a:hover i {
+    transform: translateY(-2px);
+}
+
+nav a[aria-current="true"] {
+    color: var(--text);
+    font-weight: 600;
+}
+    header.scrolled {
+    height: 64px;
+    border-color: var(--border);
+    box-shadow: 0 6px 20px var(--shadow);
+}
   </style>
 <script type="application/ld+json">
 {
@@ -262,12 +311,21 @@ section {
         <img src="Logo1.png" alt="The Audit Ninja logo" class="logo-img">
         <span>The Audit Ninja</span>
       </div>
-      <nav>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#contact">Contact</a>
+      <nav id="primaryNav">
+    <a href="#about">
+        <i class="fas fa-user"></i>
+        <span>About</span>
+    </a>
+    <a href="#services">
+        <i class="fas fa-briefcase"></i>
+        <span>Services</span>
+    </a>
+    <a href="#contact">
+        <i class="fas fa-envelope"></i>
+        <span>Contact</span>
+    </a>
 </nav>
-    </div>
+   </div>
 
     <div class="controls">
       <button id="themeToggle" class="theme-btn" aria-pressed="false" aria-label="Toggle color theme">☾</button>
